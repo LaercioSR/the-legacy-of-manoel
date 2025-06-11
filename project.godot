@@ -12,8 +12,16 @@ config_version=5
 
 config/name="The Legacy of Manoel"
 config/tags=PackedStringArray("mestrado_uefs", "personal")
+config/use_custom_user_dir=true
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=960
+window/size/viewport_height=480
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 
 [rendering]
 
