@@ -1,0 +1,271 @@
+[gd_scene load_steps=15 format=3 uid="uid://gmp6sdy14y8m"]
+
+[ext_resource type="Texture2D" uid="uid://cyesay1hkuggs" path="res://assets/textures/menu-bg.webp" id="1_aunhy"]
+[ext_resource type="Script" uid="uid://cx3dm2637swwl" path="res://scripts/game/main.gd" id="1_awd0r"]
+[ext_resource type="FontFile" uid="uid://bqf86nq8wq7hm" path="res://assets/fonts/xilosa.ttf" id="1_fvwao"]
+[ext_resource type="Texture2D" uid="uid://bxonkk6nsiguc" path="res://assets/textures/logo.webp" id="1_l47go"]
+[ext_resource type="Texture2D" uid="uid://73tnnfl436m8" path="res://assets/textures/cow-painted.webp" id="2_4hybx"]
+[ext_resource type="PackedScene" uid="uid://cb5c3ckut2xd3" path="res://scenes/ui/buttons/menu_button.tscn" id="2_l47go"]
+[ext_resource type="Texture2D" uid="uid://bwfywidx6xqtd" path="res://assets/textures/sun.webp" id="2_q8s0e"]
+
+[sub_resource type="GDScript" id="GDScript_fvwao"]
+
+[sub_resource type="Animation" id="Animation_l47go"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_fvwao"]
+resource_name = "idle"
+length = 2.0
+loop_mode = 1
+step = 0.0333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6, 1.3, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.0498108, 0.0896387, -0.0930349]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_awd0r"]
+_data = {
+&"RESET": SubResource("Animation_l47go"),
+&"idle": SubResource("Animation_fvwao")
+}
+
+[sub_resource type="Animation" id="Animation_q8s0e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(395, 172)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_aunhy"]
+resource_name = "rotation"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(395, 172), Vector2(395, 172), Vector2(395, 172), Vector2(395, 172), Vector2(395, 172)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.5708, 3.14159, 4.71239, 6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4hybx"]
+_data = {
+&"RESET": SubResource("Animation_q8s0e"),
+&"rotation": SubResource("Animation_aunhy")
+}
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_awd0r")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="LeftSide" type="ColorRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(770, 720)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/LeftSide"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 64
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer/LeftSide/MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/LeftSide/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_l47go")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="HBoxContainer/LeftSide/MarginContainer/VBoxContainer2"]
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_fvwao")
+theme_override_font_sizes/font_size = 64
+text = "O LEGADO DE MANOEL"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/LeftSide/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_constants/separation = 16
+
+[node name="btnPlay" parent="HBoxContainer/LeftSide/MarginContainer/VBoxContainer2/VBoxContainer" instance=ExtResource("2_l47go")]
+layout_mode = 2
+text = "MODO HISTÓRIA"
+script = SubResource("GDScript_fvwao")
+
+[node name="btnMinigames" parent="HBoxContainer/LeftSide/MarginContainer/VBoxContainer2/VBoxContainer" instance=ExtResource("2_l47go")]
+layout_mode = 2
+text = "MINIGAMES"
+script = SubResource("GDScript_fvwao")
+
+[node name="btnCredits" parent="HBoxContainer/LeftSide/MarginContainer/VBoxContainer2/VBoxContainer" instance=ExtResource("2_l47go")]
+layout_mode = 2
+text = "CRÉDITOS"
+script = SubResource("GDScript_fvwao")
+
+[node name="btnExit" parent="HBoxContainer/LeftSide/MarginContainer/VBoxContainer2/VBoxContainer" instance=ExtResource("2_l47go")]
+layout_mode = 2
+text = "SAIR"
+script = SubResource("GDScript_fvwao")
+
+[node name="RightSide" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/RightSide"]
+layout_mode = 0
+offset_right = 510.0
+offset_bottom = 720.0
+texture = ExtResource("1_aunhy")
+expand_mode = 1
+
+[node name="Cow" type="Sprite2D" parent="HBoxContainer/RightSide"]
+position = Vector2(447, 587)
+scale = Vector2(0.392578, 0.392578)
+texture = ExtResource("2_4hybx")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HBoxContainer/RightSide/Cow"]
+libraries = {
+&"": SubResource("AnimationLibrary_awd0r")
+}
+autoplay = "idle"
+
+[node name="Cow4" type="Sprite2D" parent="HBoxContainer/RightSide"]
+position = Vector2(468, 452)
+scale = Vector2(0.141602, 0.141602)
+texture = ExtResource("2_4hybx")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HBoxContainer/RightSide/Cow4"]
+libraries = {
+&"": SubResource("AnimationLibrary_awd0r")
+}
+autoplay = "idle"
+
+[node name="Cow2" type="Sprite2D" parent="HBoxContainer/RightSide"]
+position = Vector2(179.437, 480.438)
+scale = Vector2(-0.192, 0.192)
+texture = ExtResource("2_4hybx")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HBoxContainer/RightSide/Cow2"]
+libraries = {
+&"": SubResource("AnimationLibrary_awd0r")
+}
+autoplay = "idle"
+
+[node name="Cow3" type="Sprite2D" parent="HBoxContainer/RightSide"]
+position = Vector2(220, 559)
+scale = Vector2(-0.250594, 0.250594)
+texture = ExtResource("2_4hybx")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HBoxContainer/RightSide/Cow3"]
+libraries = {
+&"": SubResource("AnimationLibrary_awd0r")
+}
+autoplay = "idle"
+
+[node name="Cow5" type="Sprite2D" parent="HBoxContainer/RightSide"]
+position = Vector2(364.25, 504.25)
+scale = Vector2(-0.197859, 0.197859)
+texture = ExtResource("2_4hybx")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HBoxContainer/RightSide/Cow5"]
+libraries = {
+&"": SubResource("AnimationLibrary_awd0r")
+}
+autoplay = "idle"
+
+[node name="Sun" type="Sprite2D" parent="HBoxContainer/RightSide"]
+position = Vector2(395, 172)
+scale = Vector2(0.148926, 0.153031)
+texture = ExtResource("2_q8s0e")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HBoxContainer/RightSide/Sun"]
+libraries = {
+&"": SubResource("AnimationLibrary_4hybx")
+}
+autoplay = "rotation"
+
+[connection signal="pressed" from="HBoxContainer/LeftSide/MarginContainer/VBoxContainer2/VBoxContainer/btnExit" to="." method="_on_btn_exit_pressed"]

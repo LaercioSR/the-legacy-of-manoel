@@ -1,0 +1,121 @@
+[gd_scene load_steps=8 format=3 uid="uid://bkyyn4kkni8sn"]
+
+[ext_resource type="FontFile" uid="uid://bqf86nq8wq7hm" path="res://assets/fonts/xilosa.ttf" id="1_lrrqb"]
+[ext_resource type="Script" uid="uid://bjtl0gqt61xu4" path="res://scripts/game/minigame_cow.gd" id="1_ufcuf"]
+[ext_resource type="Texture2D" uid="uid://bmigswgmy1d1k" path="res://assets/textures/grass.webp" id="2_lrkwn"]
+[ext_resource type="PackedScene" uid="uid://mpl4ro70oap6" path="res://scenes/characters/cow.tscn" id="5_et8d4"]
+[ext_resource type="Texture2D" uid="uid://debhlpftnm70y" path="res://assets/textures/frence.webp" id="5_tdx5p"]
+[ext_resource type="Script" uid="uid://dofyca2bvkuyk" path="res://scripts/game/area_left.gd" id="5_wpfkx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lrrqb"]
+size = Vector2(352, 224)
+
+[node name="minigame_cow" type="Node2D"]
+script = ExtResource("1_ufcuf")
+cow_scene = ExtResource("5_et8d4")
+
+[node name="bg" type="ColorRect" parent="."]
+z_index = -10
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1280.0
+offset_bottom = 720.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="timer" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 590.0
+offset_top = 8.0
+offset_right = 690.0
+offset_bottom = 72.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_lrrqb")
+theme_override_font_sizes/font_size = 64
+text = "60s"
+
+[node name="areaLeft" type="Area2D" parent="."]
+script = ExtResource("5_wpfkx")
+
+[node name="Sprite2D" type="Sprite2D" parent="areaLeft"]
+position = Vector2(240, 179)
+scale = Vector2(0.729039, 0.729039)
+texture = ExtResource("5_tdx5p")
+
+[node name="collisionLeft" type="CollisionShape2D" parent="areaLeft"]
+position = Vector2(240, 192)
+shape = SubResource("RectangleShape2D_lrrqb")
+
+[node name="areaRight" type="Area2D" parent="."]
+position = Vector2(805, 0)
+script = ExtResource("5_wpfkx")
+target_color = "black"
+
+[node name="Sprite2D" type="Sprite2D" parent="areaRight"]
+position = Vector2(240, 179)
+scale = Vector2(0.729039, 0.729039)
+texture = ExtResource("5_tdx5p")
+
+[node name="collisionRight" type="CollisionShape2D" parent="areaRight"]
+position = Vector2(240, 192)
+shape = SubResource("RectangleShape2D_lrrqb")
+
+[node name="grass" type="Node" parent="."]
+
+[node name="Grass" type="Sprite2D" parent="grass"]
+z_index = -1
+position = Vector2(512, 488)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_lrkwn")
+
+[node name="Grass2" type="Sprite2D" parent="grass"]
+z_index = -1
+position = Vector2(664, 360)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_lrkwn")
+
+[node name="Grass3" type="Sprite2D" parent="grass"]
+z_index = -1
+position = Vector2(960, 496)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_lrkwn")
+
+[node name="Grass4" type="Sprite2D" parent="grass"]
+z_index = -1
+position = Vector2(784, 616)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_lrkwn")
+
+[node name="Grass5" type="Sprite2D" parent="grass"]
+z_index = -1
+position = Vector2(1144, 616)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_lrkwn")
+
+[node name="Grass6" type="Sprite2D" parent="grass"]
+z_index = -1
+position = Vector2(272, 640)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_lrkwn")
+
+[node name="Grass7" type="Sprite2D" parent="grass"]
+z_index = -1
+position = Vector2(80, 432)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_lrkwn")
+
+[node name="Grass8" type="Sprite2D" parent="grass"]
+z_index = -1
+position = Vector2(352, 448)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_lrkwn")
+
+[connection signal="area_entered" from="areaLeft" to="areaLeft" method="_on_area_entered"]
+[connection signal="body_entered" from="areaLeft" to="areaLeft" method="_on_body_entered"]
+[connection signal="area_entered" from="areaRight" to="areaRight" method="_on_area_entered"]
+[connection signal="body_entered" from="areaRight" to="areaRight" method="_on_body_entered"]
