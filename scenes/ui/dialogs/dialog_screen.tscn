@@ -1,0 +1,89 @@
+[gd_scene load_steps=4 format=3 uid="uid://bvy1elp2uosjg"]
+
+[ext_resource type="Script" uid="uid://evhc6c7rlieo" path="res://scripts/ui/dialog_screen.gd" id="1_02d67"]
+[ext_resource type="FontFile" uid="uid://bqf86nq8wq7hm" path="res://assets/fonts/xilosa.ttf" id="2_l03oe"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_dglj2"]
+line_spacing = 0.0
+font = ExtResource("2_l03oe")
+font_size = 32
+
+[node name="DialogScreen" type="Control" node_paths=PackedStringArray("nameLabel", "dialog", "faceset")]
+custom_minimum_size = Vector2(640, 160)
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -320.0
+offset_top = -160.0
+offset_right = 320.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("1_02d67")
+nameLabel = NodePath("Background/HContainer/VContainer/Name")
+dialog = NodePath("Background/HContainer/VContainer/Dialog")
+faceset = NodePath("Background/HContainer/Border/Faceset")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="HContainer" type="HBoxContainer" parent="Background"]
+custom_minimum_size = Vector2(608, 128)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+
+[node name="Border" type="ColorRect" parent="Background/HContainer"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+
+[node name="Faceset" type="TextureRect" parent="Background/HContainer/Border"]
+custom_minimum_size = Vector2(120, 128)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VContainer" type="VBoxContainer" parent="Background/HContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Name" type="Label" parent="Background/HContainer/VContainer"]
+layout_mode = 2
+text = "Manoel Gonçalves"
+label_settings = SubResource("LabelSettings_dglj2")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Dialog" type="RichTextLabel" parent="Background/HContainer/VContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("2_l03oe")
