@@ -1,6 +1,8 @@
 extends Control
 class_name DialogScreen
 
+signal dialog_finished
+
 var step: float = 0.05
 var id: int = 0
 var data: Dictionary = {}
@@ -8,6 +10,7 @@ var data: Dictionary = {}
 @export_category("Objects")
 @export var nameLabel: Label = null
 @export var dialog: RichTextLabel = null
+@export var facesetBorder: ColorRect = null
 @export var faceset: TextureRect = null
 
 func _ready() -> void:
@@ -22,15 +25,26 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
 		id += 1
 		if id == data.size():
+			emit_signal("dialog_finished")
 			queue_free()
 			return
 			
 		initialize_dialog()
 	
 func initialize_dialog() -> void:
-	nameLabel.text = data[id]["title"]
 	dialog.text = data[id]["dialog"]
-	faceset.texture = load(data[id]["faceset"])
+	
+	if "title" in data[id]:
+		nameLabel.text = data[id]["title"]
+		nameLabel.show()
+	else:
+		nameLabel.hide()
+	
+	if "faceset" in data[id]:
+		faceset.texture = load(data[id]["faceset"])
+		facesetBorder.show()
+	else:
+		facesetBorder.hide()
 	
 	dialog.visible_characters = 0
 	while dialog.visible_ratio < 1:

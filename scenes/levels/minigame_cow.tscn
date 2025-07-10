@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://bkyyn4kkni8sn"]
 
-[ext_resource type="FontFile" uid="uid://bqf86nq8wq7hm" path="res://assets/fonts/xilosa.ttf" id="1_lrrqb"]
+[ext_resource type="FontFile" uid="uid://cebmf2t670e83" path="res://assets/fonts/xilosa.ttf" id="1_lrrqb"]
 [ext_resource type="Script" uid="uid://bjtl0gqt61xu4" path="res://scripts/game/minigame_cow.gd" id="1_ufcuf"]
-[ext_resource type="Texture2D" uid="uid://bmigswgmy1d1k" path="res://assets/textures/grass.webp" id="2_lrkwn"]
+[ext_resource type="Texture2D" uid="uid://jq7ycjjsvfml" path="res://assets/textures/grass.webp" id="2_lrkwn"]
 [ext_resource type="PackedScene" uid="uid://mpl4ro70oap6" path="res://scenes/characters/cow.tscn" id="5_et8d4"]
-[ext_resource type="Texture2D" uid="uid://debhlpftnm70y" path="res://assets/textures/frence.webp" id="5_tdx5p"]
+[ext_resource type="Texture2D" uid="uid://dkhaxkkg4eeyd" path="res://assets/textures/frence.webp" id="5_tdx5p"]
 [ext_resource type="Script" uid="uid://dofyca2bvkuyk" path="res://scripts/game/area_left.gd" id="5_wpfkx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lrrqb"]

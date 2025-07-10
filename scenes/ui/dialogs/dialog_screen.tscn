@@ -1,14 +1,14 @@
 [gd_scene load_steps=4 format=3 uid="uid://bvy1elp2uosjg"]
 
 [ext_resource type="Script" uid="uid://evhc6c7rlieo" path="res://scripts/ui/dialog_screen.gd" id="1_02d67"]
-[ext_resource type="FontFile" uid="uid://bqf86nq8wq7hm" path="res://assets/fonts/xilosa.ttf" id="2_l03oe"]
+[ext_resource type="FontFile" uid="uid://cebmf2t670e83" path="res://assets/fonts/xilosa.ttf" id="2_l03oe"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_dglj2"]
 line_spacing = 0.0
 font = ExtResource("2_l03oe")
 font_size = 32
 
-[node name="DialogScreen" type="Control" node_paths=PackedStringArray("nameLabel", "dialog", "faceset")]
+[node name="DialogScreen" type="Control" node_paths=PackedStringArray("nameLabel", "dialog", "facesetBorder", "faceset")]
 custom_minimum_size = Vector2(640, 160)
 layout_mode = 3
 anchors_preset = 7
@@ -24,6 +24,7 @@ grow_vertical = 0
 script = ExtResource("1_02d67")
 nameLabel = NodePath("Background/HContainer/VContainer/Name")
 dialog = NodePath("Background/HContainer/VContainer/Dialog")
+facesetBorder = NodePath("Background/HContainer/Border")
 faceset = NodePath("Background/HContainer/Border/Faceset")
 
 [node name="Background" type="ColorRect" parent="."]

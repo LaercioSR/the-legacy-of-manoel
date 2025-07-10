@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://mpl4ro70oap6"]
 
 [ext_resource type="Script" uid="uid://brkkmfwvb666f" path="res://scripts/game/cow.gd" id="1_y67nu"]
-[ext_resource type="Texture2D" uid="uid://73tnnfl436m8" path="res://assets/textures/cow-painted.webp" id="1_yaibl"]
+[ext_resource type="Texture2D" uid="uid://dqksdi8tq78nj" path="res://assets/textures/cow-painted.webp" id="1_yaibl"]
 
 [node name="Area2D" type="Area2D"]
 scale = Vector2(0.399999, 0.399999)

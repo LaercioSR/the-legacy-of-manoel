@@ -320,6 +320,7 @@ texture_normal = ExtResource("9_4h46h")
 ignore_texture_size = true
 stretch_mode = 5
 
+[connection signal="pressed" from="HBoxContainer/LeftSide/MarginContainer/VBoxContainer2/VBoxContainer/btnPlay" to="." method="_on_btn_play_pressed"]
 [connection signal="pressed" from="HBoxContainer/LeftSide/MarginContainer/VBoxContainer2/VBoxContainer/btnMinigames" to="." method="_on_btn_minigames_pressed"]
 [connection signal="pressed" from="HBoxContainer/LeftSide/MarginContainer/VBoxContainer2/VBoxContainer/btnExit" to="." method="_on_btn_exit_pressed"]
 [connection signal="pressed" from="minigamesMenu/MarginContainer/VBoxContainer/minigameHeader/btnBackInitial" to="." method="_on_btn_back_initial_pressed"]
