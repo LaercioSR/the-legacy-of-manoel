@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cb5c3ckut2xd3"]
 
-[ext_resource type="FontFile" uid="uid://bqf86nq8wq7hm" path="res://assets/fonts/xilosa.ttf" id="1_bqpuj"]
+[ext_resource type="FontFile" uid="uid://cebmf2t670e83" path="res://assets/fonts/xilosa.ttf" id="1_bqpuj"]
 
 [node name="MenuButton" type="Button"]
 offset_right = 8.0

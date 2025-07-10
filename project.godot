@@ -15,7 +15,7 @@ config/tags=PackedStringArray("mestrado_uefs", "personal")
 run/main_scene="uid://gmp6sdy14y8m"
 config/use_custom_user_dir=true
 config/features=PackedStringArray("4.4", "GL Compatibility")
-config/icon="uid://dx0hesfbfgl20"
+config/icon="uid://cuiyx8ue1dq0p"
 
 [display]
 
