@@ -6,10 +6,10 @@
 [sub_resource type="LabelSettings" id="LabelSettings_dglj2"]
 line_spacing = 0.0
 font = ExtResource("2_l03oe")
-font_size = 32
+font_size = 64
 
 [node name="DialogScreen" type="Control" node_paths=PackedStringArray("nameLabel", "dialog", "facesetBorder", "faceset")]
-custom_minimum_size = Vector2(640, 160)
+custom_minimum_size = Vector2(1000, 240)
 layout_mode = 3
 anchors_preset = 7
 anchor_left = 0.5
@@ -37,7 +37,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="HContainer" type="HBoxContainer" parent="Background"]
-custom_minimum_size = Vector2(608, 128)
+custom_minimum_size = Vector2(968, 208)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -53,7 +53,7 @@ grow_vertical = 2
 theme_override_constants/separation = 16
 
 [node name="Border" type="ColorRect" parent="Background/HContainer"]
-custom_minimum_size = Vector2(128, 0)
+custom_minimum_size = Vector2(208, 0)
 layout_mode = 2
 
 [node name="Faceset" type="TextureRect" parent="Background/HContainer/Border"]
@@ -88,3 +88,5 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/normal_font = ExtResource("2_l03oe")
+theme_override_font_sizes/normal_font_size = 32
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mi augue, finibus sed mi eget, tempor semper lectus. Duis id pharetra felis, in luctus turpis. Sed vitae vulputate sem, vitae interdum mauris. "

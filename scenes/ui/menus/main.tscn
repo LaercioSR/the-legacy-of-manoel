@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://gmp6sdy14y8m"]
+[gd_scene load_steps=19 format=3 uid="uid://gmp6sdy14y8m"]
 
 [ext_resource type="Texture2D" uid="uid://b8arlbss82dh" path="res://assets/textures/menu-bg.webp" id="1_aunhy"]
 [ext_resource type="Script" uid="uid://cx3dm2637swwl" path="res://scripts/game/main.gd" id="1_awd0r"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://16gupmjaplwk" path="res://assets/textures/arrow-hover.webp" id="8_4h46h"]
 [ext_resource type="Texture2D" uid="uid://ba870pd2bpymb" path="res://assets/textures/arrow.webp" id="8_gwpm8"]
 [ext_resource type="Texture2D" uid="uid://vmegolxis5yq" path="res://assets/textures/thumbnail-cow.webp" id="9_4h46h"]
+[ext_resource type="Texture2D" uid="uid://cf516m5xfv08t" path="res://assets/textures/thumbnail-bucket.webp" id="10_0l0lq"]
 
 [sub_resource type="GDScript" id="GDScript_fvwao"]
 
@@ -263,7 +264,6 @@ libraries = {
 autoplay = "rotation"
 
 [node name="minigamesMenu" type="ColorRect" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -311,7 +311,15 @@ horizontal_alignment = 1
 
 [node name="minigameList" type="HBoxContainer" parent="minigamesMenu/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 32
 alignment = 1
+
+[node name="btnMinigameBucket" type="TextureButton" parent="minigamesMenu/MarginContainer/VBoxContainer/minigameList"]
+custom_minimum_size = Vector2(360, 240)
+layout_mode = 2
+texture_normal = ExtResource("10_0l0lq")
+ignore_texture_size = true
+stretch_mode = 5
 
 [node name="btnMinigameCow" type="TextureButton" parent="minigamesMenu/MarginContainer/VBoxContainer/minigameList"]
 custom_minimum_size = Vector2(360, 240)
@@ -324,4 +332,5 @@ stretch_mode = 5
 [connection signal="pressed" from="HBoxContainer/LeftSide/MarginContainer/VBoxContainer2/VBoxContainer/btnMinigames" to="." method="_on_btn_minigames_pressed"]
 [connection signal="pressed" from="HBoxContainer/LeftSide/MarginContainer/VBoxContainer2/VBoxContainer/btnExit" to="." method="_on_btn_exit_pressed"]
 [connection signal="pressed" from="minigamesMenu/MarginContainer/VBoxContainer/minigameHeader/btnBackInitial" to="." method="_on_btn_back_initial_pressed"]
+[connection signal="pressed" from="minigamesMenu/MarginContainer/VBoxContainer/minigameList/btnMinigameBucket" to="." method="_on_btn_minigame_bucket_pressed"]
 [connection signal="pressed" from="minigamesMenu/MarginContainer/VBoxContainer/minigameList/btnMinigameCow" to="." method="_on_btn_minigame_cow_pressed"]

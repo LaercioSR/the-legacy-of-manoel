@@ -10,12 +10,13 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lrrqb"]
 size = Vector2(352, 224)
 
-[node name="minigame_cow" type="Node2D"]
+[node name="MinigameCow" type="Node2D" node_paths=PackedStringArray("timerLabel")]
 script = ExtResource("1_ufcuf")
+timerLabel = NodePath("timerLabel")
 cow_scene = ExtResource("5_et8d4")
 
 [node name="bg" type="ColorRect" parent="."]
-z_index = -10
+z_index = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -24,7 +25,8 @@ offset_bottom = 720.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="timer" type="Label" parent="."]
+[node name="timerLabel" type="Label" parent="."]
+z_index = 2
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -39,7 +41,11 @@ theme_override_fonts/font = ExtResource("1_lrrqb")
 theme_override_font_sizes/font_size = 64
 text = "60s"
 
+[node name="timer" type="Timer" parent="."]
+autostart = true
+
 [node name="areaLeft" type="Area2D" parent="."]
+z_index = 2
 script = ExtResource("5_wpfkx")
 
 [node name="Sprite2D" type="Sprite2D" parent="areaLeft"]
@@ -52,6 +58,7 @@ position = Vector2(240, 192)
 shape = SubResource("RectangleShape2D_lrrqb")
 
 [node name="areaRight" type="Area2D" parent="."]
+z_index = 2
 position = Vector2(805, 0)
 script = ExtResource("5_wpfkx")
 target_color = "black"
@@ -68,53 +75,54 @@ shape = SubResource("RectangleShape2D_lrrqb")
 [node name="grass" type="Node" parent="."]
 
 [node name="Grass" type="Sprite2D" parent="grass"]
-z_index = -1
+z_index = 2
 position = Vector2(512, 488)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_lrkwn")
 
 [node name="Grass2" type="Sprite2D" parent="grass"]
-z_index = -1
+z_index = 2
 position = Vector2(664, 360)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_lrkwn")
 
 [node name="Grass3" type="Sprite2D" parent="grass"]
-z_index = -1
+z_index = 2
 position = Vector2(960, 496)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_lrkwn")
 
 [node name="Grass4" type="Sprite2D" parent="grass"]
-z_index = -1
+z_index = 2
 position = Vector2(784, 616)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_lrkwn")
 
 [node name="Grass5" type="Sprite2D" parent="grass"]
-z_index = -1
+z_index = 2
 position = Vector2(1144, 616)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_lrkwn")
 
 [node name="Grass6" type="Sprite2D" parent="grass"]
-z_index = -1
+z_index = 2
 position = Vector2(272, 640)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_lrkwn")
 
 [node name="Grass7" type="Sprite2D" parent="grass"]
-z_index = -1
+z_index = 2
 position = Vector2(80, 432)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_lrkwn")
 
 [node name="Grass8" type="Sprite2D" parent="grass"]
-z_index = -1
+z_index = 2
 position = Vector2(352, 448)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_lrkwn")
 
+[connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="areaLeft" to="areaLeft" method="_on_area_entered"]
 [connection signal="body_entered" from="areaLeft" to="areaLeft" method="_on_body_entered"]
 [connection signal="area_entered" from="areaRight" to="areaRight" method="_on_area_entered"]

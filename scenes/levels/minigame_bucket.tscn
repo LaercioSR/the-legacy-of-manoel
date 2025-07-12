@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=3 uid="uid://cepp4h26h442p"]
+
+[ext_resource type="Texture2D" uid="uid://d0t86f6hru2f1" path="res://assets/textures/bucket-bg.webp" id="1_kory3"]
+[ext_resource type="Script" uid="uid://d27qb8qe6y1qv" path="res://scripts/game/minigame_bucket.gd" id="1_qy661"]
+[ext_resource type="Texture2D" uid="uid://cguqxaja01nwc" path="res://assets/textures/bucket.webp" id="2_3swfi"]
+[ext_resource type="FontFile" uid="uid://cebmf2t670e83" path="res://assets/fonts/xilosa.ttf" id="3_m6xgm"]
+
+[node name="MinigameBucket" type="Node2D" node_paths=PackedStringArray("timerLabel", "balancingObject")]
+script = ExtResource("1_qy661")
+timerLabel = NodePath("timerLabel")
+balancingObject = NodePath("BalancingObject")
+
+[node name="bg" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(1280, 720)
+texture = ExtResource("1_kory3")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="timerLabel" type="Label" parent="."]
+z_index = 2
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 590.0
+offset_top = 8.0
+offset_right = 690.0
+offset_bottom = 72.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_m6xgm")
+theme_override_font_sizes/font_size = 64
+text = "60s"
+
+[node name="timer" type="Timer" parent="."]
+autostart = true
+
+[node name="BalancingObject" type="RigidBody2D" parent="."]
+position = Vector2(639, 194)
+gravity_scale = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BalancingObject"]
+polygon = PackedVector2Array(-49, -35, -46, -44, 43, -47, 49, -36, 28, 49, -26, 49)
+
+[node name="Sprite2D" type="Sprite2D" parent="BalancingObject"]
+scale = Vector2(0.36, 0.36)
+texture = ExtResource("2_3swfi")
+
+[node name="BiasChangeTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]

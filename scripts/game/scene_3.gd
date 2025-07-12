@@ -26,4 +26,7 @@ func _ready() -> void:
 	new_dialod.connect("dialog_finished", _on_dialog_finished)
 	
 func _on_dialog_finished() -> void:
-	get_tree().change_scene_to_file("res://scenes/levels/scene_4.tscn")
+	var minigame = preload("res://scenes/levels/minigame_bucket.tscn").instantiate()
+	minigame.initialize(MinigameCow.GameMode.STORY)
+	get_parent().add_child(minigame)
+	queue_free()
