@@ -1,16 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://gmp6sdy14y8m"]
+[gd_scene load_steps=14 format=3 uid="uid://gmp6sdy14y8m"]
 
 [ext_resource type="Texture2D" uid="uid://b8arlbss82dh" path="res://assets/textures/menu-bg.webp" id="1_aunhy"]
 [ext_resource type="Script" uid="uid://cx3dm2637swwl" path="res://scripts/game/main.gd" id="1_awd0r"]
-[ext_resource type="FontFile" uid="uid://cebmf2t670e83" path="res://assets/fonts/xilosa.ttf" id="1_fvwao"]
 [ext_resource type="Texture2D" uid="uid://cuiyx8ue1dq0p" path="res://assets/textures/logo.webp" id="1_l47go"]
 [ext_resource type="Texture2D" uid="uid://dqksdi8tq78nj" path="res://assets/textures/cow-painted.webp" id="2_4hybx"]
 [ext_resource type="PackedScene" uid="uid://cb5c3ckut2xd3" path="res://scenes/ui/buttons/menu_button.tscn" id="2_l47go"]
 [ext_resource type="Texture2D" uid="uid://6ltr6i7xvjlv" path="res://assets/textures/sun.webp" id="2_q8s0e"]
-[ext_resource type="Texture2D" uid="uid://16gupmjaplwk" path="res://assets/textures/arrow-hover.webp" id="8_4h46h"]
-[ext_resource type="Texture2D" uid="uid://ba870pd2bpymb" path="res://assets/textures/arrow.webp" id="8_gwpm8"]
-[ext_resource type="Texture2D" uid="uid://vmegolxis5yq" path="res://assets/textures/thumbnail-cow.webp" id="9_4h46h"]
-[ext_resource type="Texture2D" uid="uid://cf516m5xfv08t" path="res://assets/textures/thumbnail-bucket.webp" id="10_0l0lq"]
 
 [sub_resource type="GDScript" id="GDScript_fvwao"]
 
@@ -58,22 +53,10 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
+tracks/0/path = NodePath(".:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(395, 172)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -82,28 +65,16 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_aunhy"]
 resource_name = "rotation"
-length = 4.0
+length = 16.0
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
+tracks/0/path = NodePath(".:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 2, 3, 4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(395, 172), Vector2(395, 172), Vector2(395, 172), Vector2(395, 172), Vector2(395, 172)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1, 2, 3, 4),
+"times": PackedFloat32Array(0, 4, 8, 12, 16),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [0.0, 1.5708, 3.14159, 4.71239, 6.28319]
@@ -179,6 +150,7 @@ script = SubResource("GDScript_fvwao")
 
 [node name="btnCredits" parent="HBoxContainer/LeftSide/MarginContainer/VBoxContainer2/VBoxContainer" instance=ExtResource("2_l47go")]
 layout_mode = 2
+disabled = true
 text = "CRÉDITOS"
 script = SubResource("GDScript_fvwao")
 
@@ -263,74 +235,6 @@ libraries = {
 }
 autoplay = "rotation"
 
-[node name="minigamesMenu" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
-
-[node name="MarginContainer" type="MarginContainer" parent="minigamesMenu"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 40
-theme_override_constants/margin_top = 40
-theme_override_constants/margin_right = 40
-theme_override_constants/margin_bottom = 40
-
-[node name="VBoxContainer" type="VBoxContainer" parent="minigamesMenu/MarginContainer"]
-layout_mode = 2
-theme_override_constants/separation = 48
-
-[node name="minigameHeader" type="HBoxContainer" parent="minigamesMenu/MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="btnBackInitial" type="TextureButton" parent="minigamesMenu/MarginContainer/VBoxContainer/minigameHeader"]
-custom_minimum_size = Vector2(96, 96)
-layout_mode = 2
-size_flags_horizontal = 0
-texture_normal = ExtResource("8_gwpm8")
-texture_hover = ExtResource("8_4h46h")
-texture_focused = ExtResource("8_4h46h")
-ignore_texture_size = true
-stretch_mode = 5
-
-[node name="Label" type="Label" parent="minigamesMenu/MarginContainer/VBoxContainer/minigameHeader"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource("1_fvwao")
-theme_override_font_sizes/font_size = 64
-text = "Escolha um Minigame"
-horizontal_alignment = 1
-
-[node name="minigameList" type="HBoxContainer" parent="minigamesMenu/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 32
-alignment = 1
-
-[node name="btnMinigameBucket" type="TextureButton" parent="minigamesMenu/MarginContainer/VBoxContainer/minigameList"]
-custom_minimum_size = Vector2(360, 240)
-layout_mode = 2
-texture_normal = ExtResource("10_0l0lq")
-ignore_texture_size = true
-stretch_mode = 5
-
-[node name="btnMinigameCow" type="TextureButton" parent="minigamesMenu/MarginContainer/VBoxContainer/minigameList"]
-custom_minimum_size = Vector2(360, 240)
-layout_mode = 2
-texture_normal = ExtResource("9_4h46h")
-ignore_texture_size = true
-stretch_mode = 5
-
 [connection signal="pressed" from="HBoxContainer/LeftSide/MarginContainer/VBoxContainer2/VBoxContainer/btnPlay" to="." method="_on_btn_play_pressed"]
 [connection signal="pressed" from="HBoxContainer/LeftSide/MarginContainer/VBoxContainer2/VBoxContainer/btnMinigames" to="." method="_on_btn_minigames_pressed"]
 [connection signal="pressed" from="HBoxContainer/LeftSide/MarginContainer/VBoxContainer2/VBoxContainer/btnExit" to="." method="_on_btn_exit_pressed"]
-[connection signal="pressed" from="minigamesMenu/MarginContainer/VBoxContainer/minigameHeader/btnBackInitial" to="." method="_on_btn_back_initial_pressed"]
-[connection signal="pressed" from="minigamesMenu/MarginContainer/VBoxContainer/minigameList/btnMinigameBucket" to="." method="_on_btn_minigame_bucket_pressed"]
-[connection signal="pressed" from="minigamesMenu/MarginContainer/VBoxContainer/minigameList/btnMinigameCow" to="." method="_on_btn_minigame_cow_pressed"]

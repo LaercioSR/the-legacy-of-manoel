@@ -1,6 +1,46 @@
-[gd_scene load_steps=2 format=3 uid="uid://dsdswafb2jjq8"]
+[gd_scene load_steps=7 format=3 uid="uid://dsdswafb2jjq8"]
 
 [ext_resource type="Script" uid="uid://cg7ctsqnyrhpa" path="res://scripts/game/scene_1.gd" id="1_ake7g"]
+[ext_resource type="Texture2D" uid="uid://bamucflfvsov6" path="res://assets/textures/scene_1.webp" id="2_ake7g"]
+[ext_resource type="Texture2D" uid="uid://6ltr6i7xvjlv" path="res://assets/textures/sun.webp" id="3_ectdm"]
+
+[sub_resource type="Animation" id="Animation_q8s0e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_aunhy"]
+resource_name = "rotation"
+length = 16.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4, 8, 12, 16),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.5708, 3.14159, 4.71239, 6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4hybx"]
+_data = {
+&"RESET": SubResource("Animation_q8s0e"),
+&"rotation": SubResource("Animation_aunhy")
+}
 
 [node name="Scene1" type="Node2D" node_paths=PackedStringArray("hud")]
 script = ExtResource("1_ake7g")
@@ -15,3 +55,19 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="HUD"]
+offset_right = 1280.0
+offset_bottom = 480.0
+texture = ExtResource("2_ake7g")
+
+[node name="Sun" type="Sprite2D" parent="HUD/TextureRect"]
+position = Vector2(1203, 79)
+scale = Vector2(0.148926, 0.153031)
+texture = ExtResource("3_ectdm")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/TextureRect/Sun"]
+libraries = {
+&"": SubResource("AnimationLibrary_4hybx")
+}
+autoplay = "rotation"

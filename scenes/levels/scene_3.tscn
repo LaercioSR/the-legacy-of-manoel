@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cw6ao3l2qlw6q"]
+[gd_scene load_steps=3 format=3 uid="uid://cw6ao3l2qlw6q"]
 
 [ext_resource type="Script" uid="uid://bq3e4qc7ja45l" path="res://scripts/game/scene_3.gd" id="1_567m1"]
+[ext_resource type="Texture2D" uid="uid://8f372q7rpg31" path="res://assets/textures/scene_3.webp" id="2_wskts"]
 
 [node name="Scene3" type="Node2D" node_paths=PackedStringArray("hud")]
 script = ExtResource("1_567m1")
@@ -15,3 +16,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="HUD"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_wskts")

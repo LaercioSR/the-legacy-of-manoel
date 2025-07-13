@@ -8,11 +8,13 @@ var dialog_data: Dictionary = {
 	},
 	1: {
 		"title": "Manoel",
-		"dialog": "Oh minha velha, vamos ter que nos mudar para mais perto da lagoa."
+		"dialog": "Oh minha velha, vamos ter que nos mudar para mais perto da lagoa.",
+		"faceset": "res://assets/textures/manoel_faceset.webp"
 	},
 	2: {
 		"title": "Anastácia",
-		"dialog": "Acho uma boa, meu velho!"
+		"dialog": "Acho uma boa, meu velho!",
+		"faceset": "res://assets/textures/anastacia_faceset.webp"
 	},
 }
 

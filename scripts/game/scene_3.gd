@@ -8,11 +8,13 @@ var dialog_data: Dictionary = {
 	},
 	1: {
 		"title": "Anastácia",
-		"dialog": "Manoel... a água tá sumindo. Preciso buscar mais antes que acabe de vez."
+		"dialog": "Manoel... a água tá sumindo. Preciso buscar mais antes que acabe de vez.",
+		"faceset": "res://assets/textures/anastacia_faceset.webp"
 	},
 	2: {
 		"title": "Manoel",
-		"dialog": "Vá com calma, minha velha. Cuidado com o caminho."
+		"dialog": "Vá com calma, minha velha. Cuidado com o caminho.",
+		"faceset": "res://assets/textures/manoel_faceset.webp"
 	},
 }
 

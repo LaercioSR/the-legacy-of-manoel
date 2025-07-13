@@ -1,0 +1,86 @@
+[gd_scene load_steps=7 format=3 uid="uid://dpacq5mbjs3bp"]
+
+[ext_resource type="Texture2D" uid="uid://ba870pd2bpymb" path="res://assets/textures/arrow.webp" id="1_tmbcm"]
+[ext_resource type="Script" uid="uid://cjpxyd0revfd1" path="res://scripts/game/menu_minigames.gd" id="1_uwy8j"]
+[ext_resource type="Texture2D" uid="uid://16gupmjaplwk" path="res://assets/textures/arrow-hover.webp" id="2_uwy8j"]
+[ext_resource type="FontFile" uid="uid://cebmf2t670e83" path="res://assets/fonts/xilosa.ttf" id="3_5y44y"]
+[ext_resource type="Texture2D" uid="uid://cf516m5xfv08t" path="res://assets/textures/thumbnail-bucket.webp" id="4_2c1f0"]
+[ext_resource type="Texture2D" uid="uid://vmegolxis5yq" path="res://assets/textures/thumbnail-cow.webp" id="5_57vm4"]
+
+[node name="MenuMinigames" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uwy8j")
+
+[node name="bg" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 48
+
+[node name="minigameHeader" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="btnBackInitial" type="TextureButton" parent="MarginContainer/VBoxContainer/minigameHeader"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+size_flags_horizontal = 0
+texture_normal = ExtResource("1_tmbcm")
+texture_hover = ExtResource("2_uwy8j")
+texture_focused = ExtResource("2_uwy8j")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/minigameHeader"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_5y44y")
+theme_override_font_sizes/font_size = 64
+text = "Escolha um Minigame"
+horizontal_alignment = 1
+
+[node name="minigameList" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="btnMinigameBucket" type="TextureButton" parent="MarginContainer/VBoxContainer/minigameList"]
+custom_minimum_size = Vector2(360, 240)
+layout_mode = 2
+texture_normal = ExtResource("4_2c1f0")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="btnMinigameCow" type="TextureButton" parent="MarginContainer/VBoxContainer/minigameList"]
+custom_minimum_size = Vector2(360, 240)
+layout_mode = 2
+texture_normal = ExtResource("5_57vm4")
+ignore_texture_size = true
+stretch_mode = 5
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/minigameHeader/btnBackInitial" to="." method="_on_btn_back_initial_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/minigameList/btnMinigameBucket" to="." method="_on_btn_minigame_bucket_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/minigameList/btnMinigameCow" to="." method="_on_btn_minigame_cow_pressed"]
