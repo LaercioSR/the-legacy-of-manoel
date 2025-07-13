@@ -78,6 +78,7 @@ func end_game():
 	match game_mode:
 		GameMode.MENU:
 			get_tree().change_scene_to_file("res://scenes/ui/menus/main.tscn")
+			queue_free()
 		
 		GameMode.STORY:
 			get_tree().change_scene_to_file("res://scenes/levels/scene_6.tscn")
