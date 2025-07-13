@@ -179,6 +179,7 @@ libraries = {
 &"": SubResource("AnimationLibrary_awd0r")
 }
 autoplay = "idle"
+speed_scale = 0.3
 
 [node name="Cow4" type="Sprite2D" parent="HBoxContainer/RightSide"]
 position = Vector2(468, 452)
@@ -190,6 +191,7 @@ libraries = {
 &"": SubResource("AnimationLibrary_awd0r")
 }
 autoplay = "idle"
+speed_scale = 0.25
 
 [node name="Cow2" type="Sprite2D" parent="HBoxContainer/RightSide"]
 position = Vector2(179.437, 480.438)
@@ -201,6 +203,7 @@ libraries = {
 &"": SubResource("AnimationLibrary_awd0r")
 }
 autoplay = "idle"
+speed_scale = 0.5
 
 [node name="Cow3" type="Sprite2D" parent="HBoxContainer/RightSide"]
 position = Vector2(220, 559)
@@ -212,6 +215,7 @@ libraries = {
 &"": SubResource("AnimationLibrary_awd0r")
 }
 autoplay = "idle"
+speed_scale = 0.4
 
 [node name="Cow5" type="Sprite2D" parent="HBoxContainer/RightSide"]
 position = Vector2(364.25, 504.25)
@@ -223,6 +227,7 @@ libraries = {
 &"": SubResource("AnimationLibrary_awd0r")
 }
 autoplay = "idle"
+speed_scale = 0.35
 
 [node name="Sun" type="Sprite2D" parent="HBoxContainer/RightSide"]
 position = Vector2(395, 172)
