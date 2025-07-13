@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cuiyx8ue1dq0p" path="res://assets/textures/logo.webp" id="1_l47go"]
 [ext_resource type="Texture2D" uid="uid://dqksdi8tq78nj" path="res://assets/textures/cow-painted.webp" id="2_4hybx"]
 [ext_resource type="PackedScene" uid="uid://cb5c3ckut2xd3" path="res://scenes/ui/buttons/menu_button.tscn" id="2_l47go"]
-[ext_resource type="Texture2D" uid="uid://6ltr6i7xvjlv" path="res://assets/textures/sun.webp" id="2_q8s0e"]
+[ext_resource type="Texture2D" uid="uid://ctfgko5jo33mb" path="res://assets/textures/sun.webp" id="2_q8s0e"]
 
 [sub_resource type="GDScript" id="GDScript_fvwao"]
 
