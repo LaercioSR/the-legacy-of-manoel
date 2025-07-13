@@ -19,6 +19,10 @@ var dialog_data: Dictionary = {
 }
 
 @export var hud: CanvasLayer = null
+@export var waterTexture: TextureRect = null
+
+var time = 1
+var current_tween: Tween
 
 func _ready() -> void:
 	var new_dialod: DialogScreen = DIALOG_SCREEN.instantiate()
@@ -32,3 +36,9 @@ func _on_dialog_finished() -> void:
 	minigame.initialize(MinigameCow.GameMode.STORY)
 	get_parent().add_child(minigame)
 	queue_free()
+
+func _on_timer_timeout() -> void:
+	time += 1
+	
+	if time <= 5:
+		waterTexture.texture = load("res://assets/textures/scene_3_water_%d.webp" % time)
