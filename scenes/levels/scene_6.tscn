@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bjdudswhv8xqt"]
+[gd_scene load_steps=8 format=3 uid="uid://bjdudswhv8xqt"]
 
 [ext_resource type="Script" uid="uid://cedmka0kp2ick" path="res://scripts/game/scene_6.gd" id="1_5f5pc"]
-[ext_resource type="Texture2D" uid="uid://ctip7bqp4xcs3" path="res://assets/textures/scene_6.webp" id="2_3w2co"]
+[ext_resource type="Texture2D" uid="uid://b0uolcxi6ibx5" path="res://assets/textures/scene_6_1.webp" id="2_ottal"]
 [ext_resource type="Texture2D" uid="uid://ctfgko5jo33mb" path="res://assets/textures/sun.webp" id="3_ottal"]
+[ext_resource type="FontFile" uid="uid://cebmf2t670e83" path="res://assets/fonts/xilosa.ttf" id="4_ylspj"]
 
 [sub_resource type="Animation" id="Animation_q8s0e"]
 length = 0.001
@@ -59,7 +60,7 @@ color = Color(0, 0, 0, 1)
 [node name="TextureRect" type="TextureRect" parent="HUD"]
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("2_3w2co")
+texture = ExtResource("2_ottal")
 
 [node name="Sun" type="Sprite2D" parent="HUD/TextureRect"]
 position = Vector2(1203, 79)
@@ -71,3 +72,21 @@ libraries = {
 &"": SubResource("AnimationLibrary_4hybx")
 }
 autoplay = "rotation"
+
+[node name="Title" type="Label" parent="HUD"]
+offset_left = 34.0
+offset_top = 67.0
+offset_right = 472.0
+offset_bottom = 158.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_ylspj")
+theme_override_font_sizes/font_size = 52
+text = "FAZENDA PINTADAS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

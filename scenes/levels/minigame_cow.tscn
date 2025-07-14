@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bkyyn4kkni8sn"]
+[gd_scene load_steps=10 format=3 uid="uid://bkyyn4kkni8sn"]
 
 [ext_resource type="FontFile" uid="uid://cebmf2t670e83" path="res://assets/fonts/xilosa.ttf" id="1_lrrqb"]
 [ext_resource type="Script" uid="uid://bjtl0gqt61xu4" path="res://scripts/game/minigame_cow.gd" id="1_ufcuf"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://mpl4ro70oap6" path="res://scenes/characters/cow.tscn" id="5_et8d4"]
 [ext_resource type="Texture2D" uid="uid://dkhaxkkg4eeyd" path="res://assets/textures/frence.webp" id="5_tdx5p"]
 [ext_resource type="Script" uid="uid://dofyca2bvkuyk" path="res://scripts/game/area_left.gd" id="5_wpfkx"]
+[ext_resource type="Texture2D" uid="uid://dqksdi8tq78nj" path="res://assets/textures/cow-painted.webp" id="6_71pek"]
+[ext_resource type="Texture2D" uid="uid://khq68f2mcayl" path="res://assets/textures/cow-black.webp" id="7_7kmf2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lrrqb"]
 size = Vector2(352, 224)
@@ -53,6 +55,11 @@ position = Vector2(240, 179)
 scale = Vector2(0.729039, 0.729039)
 texture = ExtResource("5_tdx5p")
 
+[node name="SpriteCow" type="Sprite2D" parent="areaLeft"]
+position = Vector2(239, 193)
+scale = Vector2(0.480001, 0.480001)
+texture = ExtResource("6_71pek")
+
 [node name="collisionLeft" type="CollisionShape2D" parent="areaLeft"]
 position = Vector2(240, 192)
 shape = SubResource("RectangleShape2D_lrrqb")
@@ -67,6 +74,11 @@ target_color = "black"
 position = Vector2(240, 179)
 scale = Vector2(0.729039, 0.729039)
 texture = ExtResource("5_tdx5p")
+
+[node name="SpriteCow" type="Sprite2D" parent="areaRight"]
+position = Vector2(241, 191)
+scale = Vector2(0.480001, 0.480001)
+texture = ExtResource("7_7kmf2")
 
 [node name="collisionRight" type="CollisionShape2D" parent="areaRight"]
 position = Vector2(240, 192)
