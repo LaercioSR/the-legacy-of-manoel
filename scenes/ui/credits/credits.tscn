@@ -1,0 +1,142 @@
+[gd_scene load_steps=7 format=3 uid="uid://cedogm4d4g8g6"]
+
+[ext_resource type="Script" uid="uid://2s4j8pb08b1m" path="res://scripts/ui/credits.gd" id="1_20nbd"]
+[ext_resource type="FontFile" uid="uid://cebmf2t670e83" path="res://assets/fonts/xilosa.ttf" id="2_842xf"]
+[ext_resource type="Texture2D" uid="uid://u2u7ru6sj5wb" path="res://assets/textures/godot-logo.webp" id="3_4eyuy"]
+[ext_resource type="Texture2D" uid="uid://dqylchbfkw3xx" path="res://assets/textures/uefs-logo.webp" id="3_842xf"]
+[ext_resource type="Texture2D" uid="uid://cf14g8ikaonyn" path="res://assets/textures/lr-logo.webp" id="5_3txeh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s6w7n"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="CreditsScreen" type="ScrollContainer" node_paths=PackedStringArray("textNode")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_s6w7n")
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+script = ExtResource("1_20nbd")
+textNode = NodePath("Margin/VBoxContainer")
+credits_time = 45.0
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Margin"]
+layout_mode = 2
+theme_override_constants/separation = 64
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Margin/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_842xf")
+theme_override_fonts/italics_font = ExtResource("2_842xf")
+theme_override_fonts/bold_italics_font = ExtResource("2_842xf")
+theme_override_fonts/bold_font = ExtResource("2_842xf")
+theme_override_font_sizes/italics_font_size = 20
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 24
+bbcode_enabled = true
+text = "[center]
+[b][u]CRÉDITOS[/u][/b]
+
+[b][u]Desenvolvimento[/u][/b]  
+[b]Game Designer:[/b] Laercio Rios 
+[b]Arte:[/b] Laercio Rios 
+
+[b][u]Testadores[/u][/b] 
+- Gabriela Freire
+
+[b][u]Informações Acadêmicas[/u][/b]  
+- Este jogo foi desenvolvido como trabalho da disciplina de [b]Jogos Digitais[/b] do [b]Mestrado em Ciência da Computação[/b]
+- [b]Universidade Estadual de Feira de Santana (UEFS)[/b]
+- [b]Professor[/b]: Victor Sarinho
+
+[b][u]Ferramentas Utilizadas[/u][/b]  
+[b]Engine:[/b] Godot Engine  
+[b]Linguagem de Programação:[/b] GDScript 
+[b]Ferramentas Gráficas:[/b]  Krita
+
+[b][u]Mensagem Final[/u][/b]  
+[i]Este projeto é baseado em fatos reais contando a história dos primeiros moradores da cidade de Pintadas na Bahia e como surgiu o nome da mesma.[/i] 
+
+[/center]"
+fit_content = true
+
+[node name="Godot" type="VBoxContainer" parent="Margin/VBoxContainer"]
+custom_minimum_size = Vector2(0, 500)
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Margin/VBoxContainer/Godot"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_842xf")
+theme_override_font_sizes/font_size = 64
+text = "DESENVOLVIDO NO:"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Margin/VBoxContainer/Godot"]
+custom_minimum_size = Vector2(250, 250)
+layout_mode = 2
+texture = ExtResource("3_4eyuy")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label2" type="Label" parent="Margin/VBoxContainer/Godot"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_842xf")
+theme_override_font_sizes/font_size = 96
+text = "GODOT ENGINE"
+horizontal_alignment = 1
+
+[node name="UEFS" type="VBoxContainer" parent="Margin/VBoxContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Margin/VBoxContainer/UEFS"]
+custom_minimum_size = Vector2(360, 360)
+layout_mode = 2
+texture = ExtResource("3_842xf")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label2" type="Label" parent="Margin/VBoxContainer/UEFS"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_842xf")
+theme_override_font_sizes/font_size = 96
+text = "UEFS"
+horizontal_alignment = 1
+
+[node name="LR" type="VBoxContainer" parent="Margin/VBoxContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="Margin/VBoxContainer/LR"]
+custom_minimum_size = Vector2(360, 360)
+layout_mode = 2
+texture = ExtResource("5_3txeh")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label2" type="Label" parent="Margin/VBoxContainer/LR"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_842xf")
+theme_override_font_sizes/font_size = 96
+text = "Laercio Rios"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="Margin/VBoxContainer"]
+custom_minimum_size = Vector2(0, 720)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_842xf")
+theme_override_font_sizes/font_size = 96
+text = "Muito obrigado por jogar!"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -152,7 +152,6 @@ script = SubResource("GDScript_fvwao")
 
 [node name="btnCredits" parent="HBoxContainer/LeftSide/MarginContainer/VBoxContainer2/VBoxContainer" instance=ExtResource("2_l47go")]
 layout_mode = 2
-disabled = true
 text = "CRÉDITOS"
 script = SubResource("GDScript_fvwao")
 
@@ -244,4 +243,5 @@ autoplay = "rotation"
 
 [connection signal="pressed" from="HBoxContainer/LeftSide/MarginContainer/VBoxContainer2/VBoxContainer/btnPlay" to="." method="_on_btn_play_pressed"]
 [connection signal="pressed" from="HBoxContainer/LeftSide/MarginContainer/VBoxContainer2/VBoxContainer/btnMinigames" to="." method="_on_btn_minigames_pressed"]
+[connection signal="pressed" from="HBoxContainer/LeftSide/MarginContainer/VBoxContainer2/VBoxContainer/btnCredits" to="." method="_on_btn_credits_pressed"]
 [connection signal="pressed" from="HBoxContainer/LeftSide/MarginContainer/VBoxContainer2/VBoxContainer/btnExit" to="." method="_on_btn_exit_pressed"]

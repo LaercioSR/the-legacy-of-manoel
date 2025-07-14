@@ -50,7 +50,7 @@ func _ready() -> void:
 	bgTexture = hud.get_node("TextureRect")
 
 func _on_dialog_finished() -> void:
-	get_tree().change_scene_to_file("res://scenes/ui/menus/main.tscn")
+	get_tree().change_scene_to_file("res://scenes/ui/credits/credits.tscn")
 
 func _on_timer_timeout() -> void:
 	time += 1
