@@ -5,10 +5,12 @@
 [ext_resource type="Texture2D" uid="uid://cguqxaja01nwc" path="res://assets/textures/bucket.webp" id="2_3swfi"]
 [ext_resource type="FontFile" uid="uid://cebmf2t670e83" path="res://assets/fonts/xilosa.ttf" id="3_m6xgm"]
 
-[node name="MinigameBucket" type="Node2D" node_paths=PackedStringArray("timerLabel", "balancingObject")]
+[node name="MinigameBucket" type="Node2D" node_paths=PackedStringArray("timerLabel", "balancingObject", "timer", "biasChangeTimer")]
 script = ExtResource("1_qy661")
 timerLabel = NodePath("timerLabel")
 balancingObject = NodePath("BalancingObject")
+timer = NodePath("timer")
+biasChangeTimer = NodePath("BiasChangeTimer")
 
 [node name="bg" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(1280, 720)
@@ -33,7 +35,6 @@ theme_override_font_sizes/font_size = 64
 text = "60s"
 
 [node name="timer" type="Timer" parent="."]
-autostart = true
 
 [node name="BalancingObject" type="RigidBody2D" parent="."]
 position = Vector2(639, 194)

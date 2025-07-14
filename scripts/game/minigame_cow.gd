@@ -6,6 +6,7 @@ enum GameMode {MENU, STORY}
 @export_category("Objects")
 @export var timerLabel: Label
 @export var cow_scene: PackedScene
+@export var timer: Timer
 
 @export_category("Variables")
 @export var spawn_rate = 1.0
@@ -15,13 +16,17 @@ enum GameMode {MENU, STORY}
 
 var spawn_timer = 0.0
 var screen_size
+var game_running = false
 
 func _ready():
 	screen_size = get_viewport_rect().size
 	randomize()
 	timerLabel.text = str(time) + "s"
+	show_tutorial()
 
 func _process(delta):
+	if !game_running: return
+
 	spawn_timer += delta
 	if spawn_timer >= 1.0 / spawn_rate:
 		spawn_cow()
@@ -33,6 +38,16 @@ func initialize(mode: GameMode, custom_time: int = 15, custom_spawn_rate: float 
 	time = custom_time
 	spawn_rate = custom_spawn_rate
 	timerLabel.text = str(time) + "s"
+	
+func show_tutorial():
+	var tutorial = preload("res://scenes/ui/tutorials/tutorial_minigame_cow.tscn").instantiate()
+	add_child(tutorial)
+	tutorial.connect("minigame_tutorial_completed", start_game)
+
+func start_game():
+	game_running = true
+	timerLabel.text = str(time) + "s"
+	timer.start()
 
 func cleanup_cows():
 	for cow in get_children():

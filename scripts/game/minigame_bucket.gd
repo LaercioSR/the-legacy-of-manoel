@@ -5,6 +5,8 @@ enum GameMode {MENU, STORY}
 @export_category("Objects")
 @export var timerLabel: Label
 @export var balancingObject: RigidBody2D
+@export var timer: Timer
+@export var biasChangeTimer: Timer
 
 @export_category("Variables")
 @export var balance_speed = 1000
@@ -16,9 +18,8 @@ enum GameMode {MENU, STORY}
 @export var time = 15
 @export var game_mode: GameMode = GameMode.MENU
 
-var game_running = true
+var game_running = false
 var current_bias_direction = 1
-
 
 func _ready():
 	balancingObject.angular_damp = 1.2
@@ -27,13 +28,24 @@ func _ready():
 	current_bias_direction = 1 if randf() > 0.5 else -1
 	
 	balancingObject.apply_torque(current_bias_direction * initial_tilt_force)
+	show_tutorial()
 	
-	$BiasChangeTimer.start()
 	
 func initialize(mode: GameMode, custom_time: int = 15):
 	game_mode = mode
 	time = custom_time
 	timerLabel.text = str(time) + "s"
+
+func show_tutorial():
+	var tutorial = preload("res://scenes/ui/tutorials/tutorial_minigame_bucket.tscn").instantiate()
+	add_child(tutorial)
+	tutorial.connect("minigame_tutorial_completed", start_game)
+
+func start_game():
+	game_running = true
+	timerLabel.text = str(time) + "s"
+	timer.start()
+	biasChangeTimer.start()
 
 func _physics_process(delta):
 	if not game_running:
@@ -64,8 +76,8 @@ func _physics_process(delta):
 
 func _on_bias_change_timer_timeout():
 	current_bias_direction *= -1
-	$BiasChangeTimer.wait_time = randf_range(2.0, 5.0)
-	$BiasChangeTimer.start()
+	biasChangeTimer.wait_time = randf_range(2.0, 5.0)
+	biasChangeTimer.start()
 
 func game_over():
 	game_running = false

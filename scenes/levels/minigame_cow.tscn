@@ -12,10 +12,11 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lrrqb"]
 size = Vector2(352, 224)
 
-[node name="MinigameCow" type="Node2D" node_paths=PackedStringArray("timerLabel")]
+[node name="MinigameCow" type="Node2D" node_paths=PackedStringArray("timerLabel", "timer")]
 script = ExtResource("1_ufcuf")
 timerLabel = NodePath("timerLabel")
 cow_scene = ExtResource("5_et8d4")
+timer = NodePath("timer")
 
 [node name="bg" type="ColorRect" parent="."]
 z_index = 1
@@ -44,7 +45,6 @@ theme_override_font_sizes/font_size = 64
 text = "60s"
 
 [node name="timer" type="Timer" parent="."]
-autostart = true
 
 [node name="areaLeft" type="Area2D" parent="."]
 z_index = 2
