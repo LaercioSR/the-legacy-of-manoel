@@ -16,7 +16,7 @@ run/main_scene="uid://gmp6sdy14y8m"
 config/use_custom_user_dir=true
 config/features=PackedStringArray("4.4", "GL Compatibility")
 boot_splash/bg_color=Color(0, 0, 0, 1)
-boot_splash/show_image=false
+boot_splash/image="uid://d2oi7u6knsir6"
 config/icon="uid://cuiyx8ue1dq0p"
 
 [display]
