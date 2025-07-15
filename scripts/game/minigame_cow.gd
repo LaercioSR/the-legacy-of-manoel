@@ -17,6 +17,7 @@ enum GameMode {MENU, STORY}
 var spawn_timer = 0.0
 var screen_size
 var game_running = false
+var initialized_values = {}
 
 func _ready():
 	screen_size = get_viewport_rect().size
@@ -34,6 +35,11 @@ func _process(delta):
 	cleanup_cows()
 
 func initialize(mode: GameMode, custom_time: int = 15, custom_spawn_rate: float = 1.0):
+	initialized_values = {
+		"mode": mode,
+		"custom_time": custom_time,
+		"custom_spawn_rate": custom_spawn_rate
+	}
 	game_mode = mode
 	time = custom_time
 	spawn_rate = custom_spawn_rate
@@ -48,6 +54,19 @@ func start_game():
 	game_running = true
 	timerLabel.text = str(time) + "s"
 	timer.start()
+	
+func restart_game():
+	for cow in get_children():
+		if cow.is_in_group("cows") or cow.name == "GameOverCow":
+			cow.queue_free()
+	
+	game_running = true
+	timer.start()
+	spawn_timer = 0.0
+	time = initialized_values["custom_time"]
+	spawn_rate = initialized_values["custom_spawn_rate"]
+	game_mode = initialized_values["mode"]
+	timerLabel.text = str(time) + "s"
 
 func cleanup_cows():
 	for cow in get_children():
@@ -118,4 +137,4 @@ func _on_timer_timeout() -> void:
 		end_game()
 
 func _on_restart_button_pressed():
-	get_tree().reload_current_scene()
+	restart_game()

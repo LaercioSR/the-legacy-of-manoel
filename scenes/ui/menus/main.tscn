@@ -156,6 +156,7 @@ text = "CRÉDITOS"
 script = SubResource("GDScript_fvwao")
 
 [node name="btnExit" parent="HBoxContainer/LeftSide/MarginContainer/VBoxContainer2/VBoxContainer" instance=ExtResource("2_l47go")]
+visible = false
 layout_mode = 2
 text = "SAIR"
 script = SubResource("GDScript_fvwao")

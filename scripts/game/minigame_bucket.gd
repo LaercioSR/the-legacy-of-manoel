@@ -20,6 +20,7 @@ enum GameMode {MENU, STORY}
 
 var game_running = false
 var current_bias_direction = 1
+var initialize_minigame = {}
 
 func _ready():
 	balancingObject.angular_damp = 1.2
@@ -31,6 +32,10 @@ func _ready():
 	show_tutorial()
 	
 func initialize(mode: GameMode, custom_time: int = 15):
+	initialize_minigame = {
+		"game_mode": mode, 
+		"custom_time": custom_time
+	}
 	game_mode = mode
 	time = custom_time
 
@@ -79,15 +84,10 @@ func game_over():
 	timer.stop()
 	biasChangeTimer.stop()
 
-	for child in get_children():
-		if child.name == "GameOverBucket":
-			child.queue_free()
-
 	var gameOver = preload("res://scenes/ui/game_over/game_over_bucket.tscn").instantiate()
-	gameOver.name = "GameOverBucket"
-	add_child(gameOver)
-	gameOver.connect("play_again_pressed", _on_restart_button_pressed)
-	gameOver.connect("continue_pressed", end_game)
+	gameOver.initialize_minigame = initialize_minigame
+	get_parent().add_child(gameOver)
+	queue_free()
 
 func end_game():
 	match game_mode:
