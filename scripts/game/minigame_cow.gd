@@ -53,6 +53,7 @@ func cleanup_cows():
 	for cow in get_children():
 		if cow.is_in_group("cows"):
 			if is_out_of_bounds(cow):
+				game_over()
 				cow.queue_free()
 
 func is_out_of_bounds(cow):
@@ -83,11 +84,22 @@ func spawn_cow():
 	if game_mode == GameMode.STORY:
 		cow.speed *= 1.3
 
-func _on_timer_timeout() -> void:
-	time -= 1
-	timerLabel.text = str(time) + "s"
-	if time <= 0:
-		end_game()
+func game_over():
+	if not game_running:
+		return
+	
+	game_running = false
+	timer.stop()
+
+	for child in get_children():
+		if child.name == "GameOverCow":
+			child.queue_free()
+
+	var gameOver = preload("res://scenes/ui/game_over/game_over_cow.tscn").instantiate()
+	gameOver.name = "GameOverCow"
+	add_child(gameOver)
+	gameOver.connect("play_again_pressed", _on_restart_button_pressed)
+	gameOver.connect("continue_pressed", end_game)
 
 func end_game():
 	match game_mode:
@@ -98,3 +110,12 @@ func end_game():
 		GameMode.STORY:
 			get_tree().change_scene_to_file("res://scenes/levels/scene_6.tscn")
 			queue_free()
+
+func _on_timer_timeout() -> void:
+	time -= 1
+	timerLabel.text = str(time) + "s"
+	if time <= 0:
+		end_game()
+
+func _on_restart_button_pressed():
+	get_tree().reload_current_scene()

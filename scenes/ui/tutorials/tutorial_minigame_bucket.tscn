@@ -66,7 +66,7 @@ custom_minimum_size = Vector2(960, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_2gopp")
 theme_override_font_sizes/font_size = 32
-text = "Ajude Anastácia a equilibrar o balde água na sua cabeça."
+text = "Ajude Anastácia a equilibrar o balde de água na sua cabeça."
 horizontal_alignment = 1
 autowrap_mode = 3
 

@@ -9,8 +9,6 @@ extends ScrollContainer
 func _ready() -> void:
 	var tween = create_tween()
 	
-	await get_tree().create_timer(0.01).timeout
-	
 	var text_box_size = textNode.size.y
 	
 	var window_size = DisplayServer.window_get_size().y

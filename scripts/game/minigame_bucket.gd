@@ -30,11 +30,9 @@ func _ready():
 	balancingObject.apply_torque(current_bias_direction * initial_tilt_force)
 	show_tutorial()
 	
-	
 func initialize(mode: GameMode, custom_time: int = 15):
 	game_mode = mode
 	time = custom_time
-	timerLabel.text = str(time) + "s"
 
 func show_tutorial():
 	var tutorial = preload("res://scenes/ui/tutorials/tutorial_minigame_bucket.tscn").instantiate()
@@ -44,6 +42,7 @@ func show_tutorial():
 func start_game():
 	game_running = true
 	timerLabel.text = str(time) + "s"
+	
 	timer.start()
 	biasChangeTimer.start()
 
@@ -54,9 +53,7 @@ func _physics_process(delta):
 	gravity_effect += difficulty_increase_rate * delta
 	
 	var tilt_gravity = sin(balancingObject.rotation) * gravity_effect * 150
-	
 	var constant_bias_force = current_bias_direction * constant_bias
-	
 	var random_force = randf_range(-1.5, 1.5)
 	
 	balancingObject.apply_torque(tilt_gravity + constant_bias_force + random_force)
@@ -74,23 +71,23 @@ func _physics_process(delta):
 	if abs(rad_to_deg(balancingObject.rotation)) > max_tilt * 0.95:
 		game_over()
 
-func _on_bias_change_timer_timeout():
-	current_bias_direction *= -1
-	biasChangeTimer.wait_time = randf_range(2.0, 5.0)
-	biasChangeTimer.start()
-
 func game_over():
+	if not game_running:
+		return
+	
 	game_running = false
+	timer.stop()
+	biasChangeTimer.stop()
 
-func _on_restart_button_pressed():
-	get_tree().reload_current_scene()
+	for child in get_children():
+		if child.name == "GameOverBucket":
+			child.queue_free()
 
-
-func _on_timer_timeout() -> void:
-	time -= 1
-	timerLabel.text = str(time) + "s"
-	if time <= 0:
-		end_game()
+	var gameOver = preload("res://scenes/ui/game_over/game_over_bucket.tscn").instantiate()
+	gameOver.name = "GameOverBucket"
+	add_child(gameOver)
+	gameOver.connect("play_again_pressed", _on_restart_button_pressed)
+	gameOver.connect("continue_pressed", end_game)
 
 func end_game():
 	match game_mode:
@@ -101,3 +98,17 @@ func end_game():
 		GameMode.STORY:
 			get_tree().change_scene_to_file("res://scenes/levels/scene_4.tscn")
 			queue_free()
+
+func _on_bias_change_timer_timeout():
+	current_bias_direction *= -1
+	biasChangeTimer.wait_time = randf_range(2.0, 5.0)
+	biasChangeTimer.start()
+
+func _on_restart_button_pressed():
+	get_tree().reload_current_scene()
+
+func _on_timer_timeout() -> void:
+	time -= 1
+	timerLabel.text = str(time) + "s"
+	if time <= 0:
+		end_game()
