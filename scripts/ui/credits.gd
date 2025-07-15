@@ -1,3 +1,7 @@
+# This code was inspired by the YouTube video:  
+# "Como fazer uma tela de créditos no Godot, usando animação por script! (Godot 4)" by [Guará Programador]  
+# Link: https://www.youtube.com/watch?v=rGqXoXCITWE 
+
 extends ScrollContainer
 
 @export var textNode: Control

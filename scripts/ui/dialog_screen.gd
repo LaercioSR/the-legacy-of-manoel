@@ -1,3 +1,7 @@
+# This code was inspired by the YouTube video:  
+# "Como criar um SISTEMA DE DIÁLOGO DO ZERO na GODOT 4.1" by [DevBandeira]  
+# Link: https://www.youtube.com/watch?v=1sQ7TwutM0M&t
+
 extends Control
 class_name DialogScreen
 
